@@ -1,0 +1,1409 @@
+.auth-modal-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(26, 28, 40, 0.28);
+}
+
+.auth-modal-card {
+  width: 100%;
+  max-width: 320px;
+  padding: 28px 22px 22px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 18px 40px rgba(22, 24, 40, 0.18);
+  text-align: center;
+}
+
+.auth-modal-title {
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #202733;
+}
+
+.auth-modal-message {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.72;
+  color: #6b7384;
+}
+
+.auth-modal-button {
+  width: 100%;
+  height: 50px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #8f97ff 0%, #7d86fb 100%);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 12px 28px rgba(125, 134, 251, 0.24);
+}
+
+.scenario-bar {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  z-index: 30;
+  padding: 12px;
+  border-radius: 18px;
+  background: rgba(28, 31, 42, 0.88);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 14px 30px rgba(17, 18, 28, 0.22);
+}
+
+.scenario-bar-label {
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.scenario-control-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.scenario-mode-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 0;
+  flex: 0 0 auto;
+}
+
+.scenario-mode-chip {
+  border: none;
+  border-radius: 999px;
+  padding: 7px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.scenario-mode-chip.active {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.scenario-chip-row {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.scenario-chip-row::-webkit-scrollbar {
+  display: none;
+}
+
+.scenario-chip {
+  flex: 0 0 auto;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 11px;
+  line-height: 1;
+}
+
+.scenario-chip.active {
+  background: #ffffff;
+  color: #202733;
+  font-weight: 700;
+}
+
+.audio-demo-wrapper {
+  width: 100%;
+  max-width: 480px;
+  height: 800px;
+  max-height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(180deg, #f6f7fc 0%, #f2f4fb 100%);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #202733;
+  padding-top: 78px;
+}
+
+.app-shell,
+.header-focus-shell,
+.home-screen,
+.device-page {
+  background: linear-gradient(180deg, #f6f7fc 0%, #f2f4fb 100%);
+}
+
+.screen {
+  position: absolute;
+  top: 78px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.header-focus-screen {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.header-stage {
+  width: 100%;
+  padding: 20px 28px 0;
+}
+
+.header-strip {
+  width: 100%;
+  height: 84px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 58px 34px;
+  align-items: center;
+  column-gap: 14px;
+}
+
+.header-search-wrap {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+
+.header-search-pill {
+  width: 100%;
+  height: 58px;
+  min-width: 0;
+  border-radius: 29px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  gap: 12px;
+}
+
+.header-search-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #232b36;
+  flex: 0 0 auto;
+}
+
+.header-search-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.header-search-text {
+  min-width: 0;
+  font-size: 18px;
+  line-height: 1;
+  color: #c3c5cc;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.header-earbud-block {
+  width: 58px;
+  height: 58px;
+  border: none;
+  border-radius: 18px;
+  background: #f7ebea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.header-earbud-block.connected {
+  background: #ffffff;
+}
+
+.header-earbud-image,
+.header-earbud-block svg {
+  display: block;
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.header-message-block,
+.header-more-block {
+  position: relative;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: #232b36;
+}
+
+.header-message-block {
+  width: 52px;
+  height: 52px;
+}
+
+.header-message-block svg {
+  width: 38px;
+  height: 38px;
+}
+
+.header-message-dot {
+  position: absolute;
+  top: 7px;
+  right: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff5a36;
+}
+
+.header-more-block {
+  width: 34px;
+  height: 34px;
+}
+
+.device-page {
+  position: absolute;
+  top: 78px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.device-page-topbar {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px 0;
+}
+
+.device-page-icon-button {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: #303648;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.device-page-icon-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.device-page-title {
+  flex: 1;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #202733;
+}
+
+.device-page-spacer {
+  width: 28px;
+  height: 28px;
+}
+
+.setup-page-body {
+  padding: 44px 28px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.setup-illustration-card {
+  position: relative;
+  width: 294px;
+  height: 224px;
+  border-radius: 32px;
+  background: linear-gradient(180deg, #ffffff 0%, #f3f6ff 100%);
+  box-shadow: 0 22px 54px rgba(42, 54, 92, 0.08);
+}
+
+.setup-illustration-lid {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  width: 176px;
+  height: 74px;
+  border-radius: 44px 44px 28px 28px;
+  background: linear-gradient(180deg, #eef2ff 0%, #e2e8ff 100%);
+  transform: translateX(-50%);
+  box-shadow: inset 0 -8px 12px rgba(169, 180, 229, 0.24);
+}
+
+.setup-illustration-base {
+  position: absolute;
+  left: 50%;
+  bottom: 34px;
+  width: 198px;
+  height: 92px;
+  border-radius: 38px 38px 30px 30px;
+  background: linear-gradient(180deg, #ffffff 0%, #e9edff 100%);
+  transform: translateX(-50%);
+  box-shadow: 0 18px 26px rgba(151, 163, 214, 0.18);
+}
+
+.setup-earbud {
+  position: absolute;
+  top: 22px;
+  width: 42px;
+  height: 42px;
+  border-radius: 22px 22px 18px 18px;
+  background: linear-gradient(180deg, #d8def6 0%, #bac6ef 100%);
+}
+
+.setup-earbud::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 10px;
+  height: 24px;
+  border-radius: 999px;
+  background: #c8d1f3;
+  transform: translateX(-50%);
+}
+
+.setup-earbud-left {
+  left: 48px;
+}
+
+.setup-earbud-right {
+  right: 48px;
+}
+
+.setup-case-indicator {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  width: 38px;
+  height: 6px;
+  border-radius: 999px;
+  background: #b7c1ea;
+  transform: translateX(-50%);
+}
+
+.setup-instruction-list {
+  margin: 34px 0 0;
+  padding-left: 22px;
+  width: 294px;
+  max-width: 100%;
+  color: #4b5364;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.setup-footer,
+.ota-footer {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 34px;
+}
+
+.setup-primary-button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #8f97ff 0%, #7d86fb 100%);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 12px 28px rgba(125, 134, 251, 0.24);
+}
+
+.bluetooth-page {
+  background: #f6f7fb;
+}
+
+.bluetooth-topbar {
+  padding-top: 10px;
+}
+
+.bluetooth-page-body {
+  padding: 32px 18px 0;
+}
+
+.bluetooth-card {
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(31, 35, 53, 0.06);
+  overflow: hidden;
+}
+
+.bluetooth-card-header {
+  padding: 14px 16px 10px;
+  font-size: 11px;
+  color: #8d93a3;
+  border-bottom: 1px solid #eef0f5;
+}
+
+.bluetooth-device-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  font-size: 13px;
+  color: #1f2430;
+}
+
+.bluetooth-device-status {
+  color: #5b8cff;
+  font-size: 11px;
+}
+
+.connected-illustration {
+  position: relative;
+  width: 214px;
+  height: 128px;
+}
+
+.connected-lid {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 150px;
+  height: 30px;
+  border-radius: 999px 999px 18px 18px;
+  background: linear-gradient(180deg, #fafafa 0%, #e6e6e6 100%);
+  box-shadow: inset 0 -5px 8px rgba(180, 180, 180, 0.24), 0 4px 10px rgba(168, 168, 168, 0.14);
+  transform: translateX(-50%);
+}
+
+.connected-base {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 172px;
+  height: 86px;
+  border-radius: 999px 999px 26px 26px;
+  background: linear-gradient(180deg, #ffffff 0%, #eeeeee 100%);
+  box-shadow: inset 0 -8px 10px rgba(188, 188, 188, 0.22), 0 10px 20px rgba(181, 181, 181, 0.16);
+  transform: translateX(-50%);
+}
+
+.connected-case-notch {
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  width: 38px;
+  height: 10px;
+  border-radius: 0 0 8px 8px;
+  background: #d9d9d9;
+  transform: translateX(-50%);
+}
+
+.connected-earbud-shell {
+  position: absolute;
+  top: 16px;
+  width: 64px;
+  height: 50px;
+  border-radius: 999px;
+  border: 2px solid #d7d7d7;
+  background: linear-gradient(180deg, #fefefe 0%, #f1f1f1 100%);
+  box-shadow: inset 0 -6px 10px rgba(202, 202, 202, 0.18);
+}
+
+.connected-earbud-shell-left {
+  left: 16px;
+}
+
+.connected-earbud-shell-right {
+  right: 16px;
+}
+
+.connected-earbud-core {
+  position: absolute;
+  top: 13px;
+  width: 34px;
+  height: 17px;
+  border-top: 4px solid #9d9d9d;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-radius: 24px 24px 0 0;
+}
+
+.connected-earbud-core-left {
+  left: 10px;
+  transform: rotate(-18deg);
+}
+
+.connected-earbud-core-right {
+  right: 10px;
+  transform: rotate(18deg) scaleX(-1);
+}
+
+.connected-earbud-stem {
+  position: absolute;
+  bottom: 6px;
+  width: 16px;
+  height: 34px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #fafafa 0%, #dddddd 100%);
+  box-shadow: inset 0 -4px 6px rgba(185, 185, 185, 0.18);
+}
+
+.connected-earbud-stem-left {
+  left: 34px;
+  transform: rotate(8deg);
+}
+
+.connected-earbud-stem-right {
+  right: 34px;
+  transform: rotate(-8deg);
+}
+
+.device-overview-page {
+  background: linear-gradient(180deg, #f7f8fd 0%, #f2f4fb 100%);
+}
+
+.device-overview-topbar {
+  padding-top: 12px;
+}
+
+.device-overview-title {
+  font-size: 16px;
+}
+
+.device-overview-body {
+  padding: 12px 20px 120px;
+  overflow-y: auto;
+  height: calc(100% - 44px);
+}
+
+.device-overview-body.compact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 44px;
+}
+
+.device-hero-section {
+  padding: 8px 8px 0;
+  text-align: center;
+}
+
+.device-hero-section.compact {
+  padding: 0;
+}
+
+.device-hero-name {
+  font-size: 30px;
+  line-height: 1.15;
+  font-weight: 400;
+  color: #171c28;
+}
+
+.device-hero-subtitle {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #80889a;
+}
+
+.device-hero-section .connected-illustration {
+  margin: 26px auto 0;
+  width: 236px;
+  height: 140px;
+}
+
+.device-hero-section.compact .connected-illustration {
+  margin-top: 0;
+  width: 258px;
+  height: 152px;
+}
+
+.device-battery-card,
+.device-section-card,
+.ota-detail-hero-card,
+.ota-detail-section-card,
+.ota-result-hero-card {
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 28px;
+  box-shadow: 0 18px 50px rgba(32, 40, 69, 0.08);
+}
+
+.device-battery-inline-section {
+  margin-top: 34px;
+}
+
+.device-status-row {
+  display: flex;
+}
+
+.device-status-inline-row {
+  align-items: flex-start;
+  gap: 34px;
+}
+
+.device-status-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.device-status-item.compact {
+  flex: 0 0 auto;
+  gap: 10px;
+}
+
+.device-status-item svg {
+  width: 30px;
+  height: 20px;
+}
+
+.device-status-item span {
+  font-size: 15px;
+  line-height: 1;
+  font-weight: 700;
+  color: #36ab62;
+}
+
+.device-status-item.compact span {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.device-status-item small {
+  font-size: 12px;
+  color: #8b92a3;
+}
+
+.device-single-entry-card {
+  width: 100%;
+  margin-top: 40px;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  border-top: 1px solid rgba(214, 220, 232, 0.7);
+  border-bottom: 1px solid rgba(214, 220, 232, 0.7);
+  border-radius: 0;
+}
+
+.device-meta-row {
+  width: 100%;
+  height: 56px;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2px;
+  text-align: left;
+}
+
+.device-meta-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #202733;
+}
+
+.device-meta-value-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.device-meta-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff5a36;
+  box-shadow: 0 0 10px rgba(255, 90, 54, 0.18);
+}
+
+.device-meta-value,
+.device-meta-arrow {
+  font-size: 14px;
+  color: #8d95a6;
+}
+
+.device-meta-value.highlight {
+  color: #5e6680;
+  font-weight: 600;
+}
+
+.device-meta-arrow {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.ota-light-page,
+.device-overview-page {
+  background: linear-gradient(180deg, #f7f8fd 0%, #f2f4fb 100%);
+}
+
+.device-overview-page .device-page-icon-button,
+.ota-light-page .device-page-icon-button {
+  color: #303648;
+}
+
+.device-overview-page .device-overview-title,
+.ota-light-page .ota-light-title,
+.ota-light-page .device-page-title {
+  color: #202733;
+}
+
+.device-overview-page .connected-lid,
+.ota-light-page .connected-lid {
+  background: linear-gradient(180deg, #fafafa 0%, #e6e6e6 100%);
+  box-shadow: inset 0 -5px 8px rgba(180, 180, 180, 0.24), 0 4px 10px rgba(168, 168, 168, 0.14);
+}
+
+.device-overview-page .connected-base,
+.ota-light-page .connected-base {
+  background: linear-gradient(180deg, #ffffff 0%, #eeeeee 100%);
+  box-shadow: inset 0 -8px 10px rgba(188, 188, 188, 0.22), 0 10px 20px rgba(181, 181, 181, 0.16);
+}
+
+.device-overview-page .connected-case-notch,
+.ota-light-page .connected-case-notch {
+  background: #d9d9d9;
+}
+
+.device-overview-page .connected-earbud-shell,
+.ota-light-page .connected-earbud-shell {
+  border-color: #d7d7d7;
+  background: linear-gradient(180deg, #fefefe 0%, #f1f1f1 100%);
+  box-shadow: inset 0 -6px 10px rgba(202, 202, 202, 0.18);
+}
+
+.device-overview-page .connected-earbud-core,
+.ota-light-page .connected-earbud-core {
+  border-top-color: #9d9d9d;
+}
+
+.device-overview-page .connected-earbud-stem,
+.ota-light-page .connected-earbud-stem {
+  background: linear-gradient(180deg, #fafafa 0%, #dddddd 100%);
+  box-shadow: inset 0 -4px 6px rgba(185, 185, 185, 0.18);
+}
+
+.device-status-item.compact span {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6f7788;
+}
+
+.ota-light-topbar.no-back {
+  justify-content: center;
+}
+
+.ota-light-topbar.no-back .device-page-title {
+  flex: 0 1 auto;
+}
+
+.ota-light-topbar.no-back .device-page-spacer {
+  width: 28px;
+  height: 28px;
+}
+
+.ota-light-topbar {
+  padding-top: 12px;
+}
+
+.ota-light-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #202733;
+}
+
+.ota-progress-page .ota-light-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #6f7788;
+}
+
+.ota-detail-scroll {
+  height: calc(100% - 44px);
+  overflow-y: auto;
+  padding: 16px 20px 108px;
+}
+
+.ota-detail-scroll.sheet-open {
+  padding-bottom: 360px;
+}
+
+
+.ota-page-hero {
+  padding: 4px 2px 22px;
+}
+
+.ota-page-hero.progress-hero {
+  text-align: center;
+  max-width: 388px;
+  margin: 0 auto;
+}
+
+.ota-availability-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4e5668;
+}
+
+.ota-availability-inline.muted {
+  color: #6c7486;
+}
+
+.ota-inline-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff5a36;
+}
+
+.ota-inline-dot.progress {
+  background: #7d8aff;
+}
+
+.ota-detail-headline {
+  margin-top: 16px;
+  font-size: 24px;
+  line-height: 1.28;
+  font-weight: 700;
+  color: #1d2330;
+}
+
+.ota-page-hero.progress-hero .ota-detail-headline {
+  margin-top: 0;
+}
+
+.progress-headline.refined-progress-title {
+  font-size: 26px;
+  line-height: 1.24;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+.ota-detail-subtitle {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.75;
+  color: #7b8394;
+}
+
+.ota-version-inline-row {
+  margin-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  line-height: 1.08;
+  color: #1d2330;
+}
+
+.ota-version-inline-strong {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.ota-version-arrow {
+  color: #8d95a6;
+  font-weight: 500;
+}
+
+.ota-page-section {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(220, 225, 236, 0.88);
+}
+
+.ota-page-section.first {
+  margin-top: 6px;
+}
+
+.ota-page-section.subtle {
+  padding-bottom: 6px;
+}
+
+.ota-page-section-title {
+  font-size: 18px;
+  line-height: 1.36;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #202733;
+}
+
+.ota-brief-list {
+  margin-top: 12px;
+  display: grid;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.68;
+  color: #6a7284;
+}
+
+.plain-note-block {
+  margin-top: 12px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  color: #7b8394;
+  font-size: 13px;
+  line-height: 1.66;
+  text-align: left;
+}
+
+.plain-list {
+  list-style: none;
+  margin: 14px 0 0;
+  padding-left: 0;
+}
+
+.plain-list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #5f6778;
+}
+
+.plain-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #aab3c6;
+}
+
+.compact-list li + li {
+  margin-top: 10px;
+}
+
+.ota-assurance-copy {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #6b7384;
+}
+
+.ota-action-button {
+  height: 50px;
+}
+
+.ota-progress-percent.prominent {
+  margin-top: 0;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 0;
+  font-weight: 650;
+  color: #6f7788;
+}
+
+.plain-track {
+  margin-top: 0;
+}
+
+.ota-progress-inline-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.ota-progress-inline-row.preparing,
+.ota-progress-inline-row.upgrading {
+  background: transparent;
+  border: none;
+}
+
+.inline-progress-track {
+  flex: 1;
+}
+
+.inline-percent {
+  flex: 0 0 auto;
+  min-width: 44px;
+  height: auto;
+  padding: 0;
+  border-radius: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+  background: transparent;
+}
+
+.inline-percent.preparing,
+.inline-percent.upgrading {
+  background: transparent;
+}
+
+.inline-percent.preparing {
+  color: #7a8294;
+}
+
+.inline-percent.upgrading {
+  color: #5f6bff;
+}
+
+.ota-progress-track.refined {
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #f0f3f8 0%, #e6eaf3 100%);
+  overflow: hidden;
+}
+
+.ota-progress-track.refined.large {
+  height: 4px;
+}
+
+.ota-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #8e96ff 0%, #6674ff 100%);
+}
+
+.ota-progress-fill.preparing {
+  background: linear-gradient(90deg, #aab0ff 0%, #8f98ff 100%);
+}
+
+.ota-progress-fill.upgrading {
+  background: linear-gradient(90deg, #7d88ff 0%, #5e6cff 100%);
+}
+
+.ota-progress-stage {
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.66;
+  color: #7b8394;
+}
+
+.ota-progress-stage.preparing {
+  color: #8a91a3;
+}
+
+.ota-progress-stage.upgrading {
+  color: #6f7788;
+}
+
+.progress-notes-section {
+  margin-top: 24px;
+}
+
+.plain-note-block {
+  margin-top: 12px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  color: #7b8394;
+  font-size: 13px;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.ota-result-scroll {
+  padding-top: 44px;
+}
+
+.plain-state-scroll {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ota-plain-state {
+  width: 100%;
+  padding: 20px 4px 0;
+  text-align: center;
+}
+
+.ota-result-icon.light {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.ota-result-icon.light.success {
+  background: rgba(85, 192, 120, 0.14);
+  color: #4ea96b;
+}
+
+.ota-result-icon.light.failed {
+  background: rgba(255, 120, 120, 0.14);
+  color: #ef6a6a;
+}
+
+.ota-result-title.light {
+  margin-top: 18px;
+  font-size: 24px;
+  line-height: 1.28;
+  font-weight: 700;
+  color: #202733;
+}
+
+.ota-result-subtitle.light {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.68;
+  color: #7e8697;
+}
+
+.ota-up-to-date-version {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.64;
+  color: #8b92a3;
+}
+
+.setup-primary-button.secondary {
+  background: linear-gradient(180deg, #8f97ff 0%, #7d86fb 100%);
+  color: #ffffff;
+  box-shadow: 0 12px 28px rgba(125, 134, 251, 0.24);
+}
+
+.sheet-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 24px 16px 24px;
+  background: rgba(26, 28, 40, 0.18);
+}
+
+.sheet-card {
+  width: 100%;
+  max-width: 448px;
+  padding: 12px 20px 20px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 -8px 30px rgba(22, 24, 40, 0.12);
+}
+
+.sheet-handle {
+  width: 38px;
+  height: 4px;
+  margin: 0 auto 16px;
+  border-radius: 999px;
+  background: rgba(138, 146, 162, 0.32);
+}
+
+.sheet-title {
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #202733;
+}
+
+.sheet-message {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #6b7384;
+}
+
+.sheet-button {
+  width: 100%;
+  height: 50px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #8f97ff 0%, #7d86fb 100%);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 12px 28px rgba(125, 134, 251, 0.24);
+}
+
+
+.ota-detail-hero-card.ota-intro-card {
+  padding-bottom: 22px;
+}
+
+.ota-condition-list.refined,
+.ota-update-list.refined {
+  list-style: none;
+  margin-top: 16px;
+  padding-left: 0;
+}
+
+.ota-condition-list.refined li,
+.ota-update-list.refined li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.ota-condition-list.refined li::before,
+.ota-update-list.refined li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6978ff;
+}
+
+.ota-condition-list.spaced li + li,
+.ota-update-list.refined li + li,
+.compact-list li + li {
+  margin-top: 10px;
+}
+
+.ota-assurance-note {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(95, 111, 255, 0.08) 0%, rgba(95, 111, 255, 0.04) 100%);
+  color: #5863df;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.ota-assurance-note.subtle {
+  margin-top: 18px;
+  background: rgba(95, 111, 255, 0.06);
+  color: #6972a7;
+}
+
+.ota-progress-scroll.refined-scroll {
+  padding-bottom: 126px;
+}
+
+.refined-state-card {
+  padding-bottom: 26px;
+}
+
+.progress-badge {
+  min-width: 92px;
+}
+
+.refined-progress-card {
+  padding-bottom: 18px;
+}
+
+.ota-progress-track.refined.large {
+  height: 12px;
+}
+
+.ota-progress-stage {
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #697183;
+}
+
+.note-card {
+  padding-bottom: 22px;
+}
+
+.refined-result-scroll {
+  padding-top: 44px;
+}
+
+.refined-result-card {
+  padding-top: 38px;
+}
+
+.refined-result-note-card {
+  padding-bottom: 22px;
+}
+
+.compact-ota-flow {
+  padding-top: 18px;
+}
+
+.compact-hero {
+  padding-bottom: 12px;
+  text-align: center;
+}
+
+.ota-detail-headline.compact {
+  margin-top: 0;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.ota-version-inline-row.compact {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #5f6778;
+}
+
+.ota-version-inline-strong {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.ota-version-arrow {
+  color: #a0a7b7;
+  font-weight: 400;
+}
+
+.compact-section {
+  margin-top: 12px;
+  padding-top: 14px;
+}
+
+.ota-brief-copy {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #61697b;
+}
+
+.ota-brief-list {
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.78;
+  color: #6a7284;
+}
+
+.ota-footnote-copy {
+  margin-top: 18px;
+  font-size: 13px;
+  line-height: 1.64;
+  color: #9198a8;
+}
+
+.refined-note-block {
+  gap: 10px;
+}
