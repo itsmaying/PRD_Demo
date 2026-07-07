@@ -81,25 +81,26 @@ function ControlPanel({ earphonesConnected, onToggleEarphones, activePreviewStat
           </button>
         ))}
       </div>
-      <div className="svp-control-section">
-        <div className="svp-control-label">倒计时显示</div>
-        <label className="svp-control-checkbox">
-          <input type="checkbox" checked={showCountdown} onChange={onToggleCountdown} />
-          <span>显示最后10秒倒计时</span>
-        </label>
-      </div>
-      <div className="svp-control-section">
-        <div className="svp-control-label">声纹状态</div>
-        <div className="svp-control-status-buttons">
-          {['processing', 'valid', 'invalid'].map((status) => (
-            <button
-              key={status}
-              className={`svp-control-status-btn${sampleStatus === status ? ' active' : ''}`}
-              onClick={() => onChangeSampleStatus(status)}
-            >
-              {status === 'processing' ? '处理中' : status === 'valid' ? '可用' : '建议重录'}
-            </button>
-          ))}
+      <div className="svp-control-card">
+        <div className="svp-control-card-row">
+          <label className="svp-control-checkbox">
+            <input type="checkbox" checked={showCountdown} onChange={onToggleCountdown} />
+            <span>倒计时</span>
+          </label>
+        </div>
+        <div className="svp-control-card-row">
+          <span className="svp-control-card-label">声纹状态</span>
+          <div className="svp-control-status-buttons">
+            {['processing', 'valid', 'invalid'].map((status) => (
+              <button
+                key={status}
+                className={`svp-control-status-btn${sampleStatus === status ? ' active' : ''}`}
+                onClick={() => onChangeSampleStatus(status)}
+              >
+                {status === 'processing' ? '处理中' : status === 'valid' ? '可用' : '建议重录'}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
       <div className="svp-control-footer">
@@ -188,7 +189,7 @@ function RecordingPage({ status, onStart, onComplete, onRetry, isSubmitting, cou
       <h2 className={failed ? 'svp-error-title' : ''}>{titleText}</h2>
       <p className={`svp-lead-copy${failed ? ' svp-error-text' : ''}`}>{leadText}</p>
       <div className="svp-script-card">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
           <RecordingWave active={active && !failed} />
           {showCountdown && active && <RecordingCountdown seconds={countdownSeconds} />}
         </div>

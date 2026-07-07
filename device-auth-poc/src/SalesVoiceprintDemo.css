@@ -51,40 +51,68 @@
   color: #202733;
 }
 
-.svp-control-section {
+.svp-control-card {
   margin-top: 12px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.svp-control-card-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.svp-control-card-row + .svp-control-card-row {
+  margin-top: 8px;
+}
+
+.svp-control-card-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .svp-control-checkbox {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
+  font-size: 12px;
   color: rgba(255, 255, 255, 0.82);
   cursor: pointer;
+  margin: 0;
 }
 
 .svp-control-checkbox input {
   cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+.svp-control-checkbox span {
+  flex: 1;
 }
 
 .svp-control-status-buttons {
   display: flex;
-  gap: 8px;
-  margin-top: 6px;
+  gap: 6px;
 }
 
 .svp-control-status-btn {
-  flex: 1;
-  padding: 6px 12px;
+  flex: 0 1 auto;
+  padding: 4px 10px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
+  border-radius: 6px;
   background: rgba(255, 255, 255, 0.05);
   color: rgba(255, 255, 255, 0.7);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
+  white-space: nowrap;
 }
 
 .svp-control-status-btn:hover {
