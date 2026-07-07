@@ -197,7 +197,7 @@ function RecordingPage({ status, onStart, onComplete, onRetry, isSubmitting, cou
       <div className="svp-script-card">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
           <span></span>
-          {active && !failed && <RecordingWave active={true} />}
+          {!failed && <RecordingWave active={active} />}
         </div>
         <div>{fixedScript}</div>
       </div>
