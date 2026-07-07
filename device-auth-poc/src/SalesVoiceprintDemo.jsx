@@ -466,10 +466,13 @@ export default function SalesVoiceprintDemo() {
     setDeleteOpen(false)
     setToast('')
     setIsSubmitting(false)
+
+    // Clear existing demo countdown
     if (demoCountdownIntervalRef.current) {
       window.clearInterval(demoCountdownIntervalRef.current)
-      setDemoCountdown(null)
+      demoCountdownIntervalRef.current = null
     }
+    setDemoCountdown(null)
 
     if (stateId === 'failed_duration') {
       setPage(pageKeys.recording)
