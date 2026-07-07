@@ -153,11 +153,13 @@ function RecordingWave({ active }) {
 
 function RecordingCountdown({ seconds }) {
   if (!seconds) return null
+  const progress = ((MAX_RECORDING_SECONDS - seconds) / MAX_RECORDING_SECONDS) * 100
   return (
-    <div className="svp-countdown">
-      <span className="svp-countdown-label">录制倒计时</span>
-      <span className="svp-countdown-time">{seconds}s</span>
-      <span className="svp-countdown-hint">时间到自动提交</span>
+    <div className="svp-countdown-bar">
+      <div className="svp-countdown-progress">
+        <div className="svp-countdown-fill" style={{ width: `${progress}%` }}></div>
+      </div>
+      <span className="svp-countdown-text">{seconds}s 后自动提交</span>
     </div>
   )
 }
@@ -193,10 +195,10 @@ function RecordingPage({ status, onStart, onComplete, onRetry, isSubmitting, cou
       <div className="svp-script-card">
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
           <RecordingWave active={active && !failed} />
-          {showCountdown && active && <RecordingCountdown seconds={countdownSeconds} />}
         </div>
         <div>{fixedScript}</div>
       </div>
+      {showCountdown && active && <RecordingCountdown seconds={countdownSeconds} />}
       <div className="svp-action-hint">{actionHint}</div>
       <div className="svp-recording-actions">
         {failed ? (
