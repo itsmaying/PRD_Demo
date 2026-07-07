@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import DeviceAuthDemo from './DeviceAuthDemo.jsx'
 import AudioDeleteDemo from './audioDelete/AudioDeleteDemo.jsx'
+import SalesVoiceprintDemo from './SalesVoiceprintDemo.jsx'
 import './App.css'
 
 const demoItems = [
@@ -37,9 +38,18 @@ const demoItems = [
     summary: '覆盖升级说明、开始升级前校验、升级中进度与成功失败结果页。',
     metrics: ['说明', '进度', '结果'],
   },
+  {
+    id: 'sales-voiceprint',
+    title: '销售声纹录入',
+    subtitle: '我的声音 / 录制引导 / 删除回退',
+    status: '可体验',
+    date: '07/06',
+    version: '7.21',
+    accent: '#F56A3A',
+    summary: '覆盖未录入、耳机未连接拦截、录制失败、录制成功、已录入态与删除回退。',
+    metrics: ['未录入', '录制', '删除'],
+  },
 ]
-
-const versionOptions = ['全部', '5.15']
 
 function UpdateNotice({ updateVersion, onRefresh, onDismiss }) {
   if (!updateVersion) return null
@@ -137,8 +147,10 @@ function VersionSelector({ activeVersion, options, counts, onSelect, open, onTog
 }
 
 function DemoHome({ items, onOpen, updateNotice, buildVersion }) {
-  const [activeVersion, setActiveVersion] = useState('5.15')
+  const [activeVersion, setActiveVersion] = useState('全部')
   const [selectorOpen, setSelectorOpen] = useState(false)
+
+  const versionOptions = useMemo(() => ['全部', ...new Set(items.map((item) => item.version))], [items])
 
   const versionCounts = useMemo(() => {
     const counts = {
@@ -295,6 +307,14 @@ function App() {
     return (
       <DemoPreviewShell title="OTA 手动升级" onBack={() => setActiveDemo(null)} updateNotice={updateNotice}>
         <DeviceAuthDemo demoMode="ota" showModeSwitch={false} onDemoModeChange={() => {}} />
+      </DemoPreviewShell>
+    )
+  }
+
+  if (activeDemo === 'sales-voiceprint') {
+    return (
+      <DemoPreviewShell title="销售声纹录入" onBack={() => setActiveDemo(null)} updateNotice={updateNotice}>
+        <SalesVoiceprintDemo />
       </DemoPreviewShell>
     )
   }
