@@ -190,7 +190,7 @@ function RecordingPage({ status, onStart, onComplete, onRetry, isSubmitting, cou
       <div className="svp-script-card">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
           <RecordingWave active={active && !failed} />
-          {showCountdown && <RecordingCountdown seconds={countdownSeconds} />}
+          {showCountdown && active && <RecordingCountdown seconds={countdownSeconds} />}
         </div>
         <div>{fixedScript}</div>
       </div>
@@ -238,12 +238,15 @@ function RecordedPage({ onRerecord, status }) {
 
   return (
     <PageShell>
-      <div className="svp-copy-list">
+      <div className="svp-recorded-header">
         <p>已录入你的声音样本</p>
+        <div className={`svp-status-inline ${statusClass}`}>
+          {statusText}
+        </div>
       </div>
-      <div className={`svp-status-badge ${statusClass}`}>
-        {statusText}
-      </div>
+      {status === voiceprintStatus.invalid && (
+        <p className="svp-status-hint">样本未通过验证，建议重新录制以获得更好的识别效果</p>
+      )}
       <div className="svp-recorded-actions">
         <button className="svp-primary-btn" onClick={onRerecord}>重新录制</button>
       </div>
