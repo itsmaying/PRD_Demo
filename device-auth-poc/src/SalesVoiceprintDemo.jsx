@@ -365,11 +365,23 @@ export default function SalesVoiceprintDemo() {
 
         if (elapsedSeconds >= MAX_RECORDING_SECONDS) {
           setCountdownSeconds(null)
+          // Auto submit when max recording seconds reached
+          window.setTimeout(() => {
+            handleCompleteRecording()
+          }, 0)
           return
         }
 
         if (elapsedSeconds > MAX_RECORDING_SECONDS - COUNTDOWN_START_SECONDS) {
-          setCountdownSeconds(Math.ceil(MAX_RECORDING_SECONDS - elapsedSeconds))
+          const remaining = Math.ceil(MAX_RECORDING_SECONDS - elapsedSeconds)
+          setCountdownSeconds(remaining)
+          if (remaining === 0) {
+            // Auto submit when countdown reaches 0
+            window.setTimeout(() => {
+              handleCompleteRecording()
+            }, 0)
+            return
+          }
         } else {
           setCountdownSeconds(null)
         }
@@ -493,6 +505,10 @@ export default function SalesVoiceprintDemo() {
           if (remaining <= 0) {
             setDemoCountdown(null)
             window.clearInterval(demoCountdownIntervalRef.current)
+            // Auto submit when countdown reaches 0
+            window.setTimeout(() => {
+              setPage(pageKeys.success)
+            }, 500)
           } else {
             setDemoCountdown(remaining)
           }
