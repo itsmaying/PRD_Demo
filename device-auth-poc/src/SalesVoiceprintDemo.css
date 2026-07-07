@@ -478,30 +478,30 @@
 .svp-recording-wave {
   display: flex;
   align-items: flex-end;
-  gap: 5px;
-  height: 18px;
-  margin-bottom: 16px;
-  color: #1f1f1f;
+  gap: 3px;
+  height: 14px;
+  color: #7b3ff2;
+  flex-shrink: 0;
 }
 
 .svp-recording-wave span {
-  width: 3px;
+  width: 2px;
   border-radius: 999px;
   background: currentColor;
 }
 
 .svp-recording-wave span:nth-child(1),
 .svp-recording-wave span:nth-child(5) {
-  height: 8px;
+  height: 5px;
 }
 
 .svp-recording-wave span:nth-child(2),
 .svp-recording-wave span:nth-child(4) {
-  height: 14px;
+  height: 10px;
 }
 
 .svp-recording-wave span:nth-child(3) {
-  height: 18px;
+  height: 14px;
 }
 
 .svp-recording-wave.active span:nth-child(1) {

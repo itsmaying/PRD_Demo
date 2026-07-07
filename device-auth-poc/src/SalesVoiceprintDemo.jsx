@@ -195,8 +195,9 @@ function RecordingPage({ status, onStart, onComplete, onRetry, isSubmitting, cou
       <p className={`svp-lead-copy${failed ? ' svp-error-text' : ''}`}>{leadText}</p>
       {showCountdown && active && <RecordingCountdown seconds={countdownSeconds} />}
       <div className="svp-script-card">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-          <RecordingWave active={active && !failed} />
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
+          <span></span>
+          {active && !failed && <RecordingWave active={true} />}
         </div>
         <div>{fixedScript}</div>
       </div>
