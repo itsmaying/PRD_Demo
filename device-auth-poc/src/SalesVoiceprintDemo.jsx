@@ -153,7 +153,7 @@ function RecordingWave({ active }) {
 
 function RecordingCountdown({ seconds }) {
   if (!seconds) return null
-  const progress = ((MAX_RECORDING_SECONDS - seconds) / MAX_RECORDING_SECONDS) * 100
+  const progress = ((COUNTDOWN_START_SECONDS - seconds) / COUNTDOWN_START_SECONDS) * 100
 
   return (
     <div className="svp-countdown-bar">
