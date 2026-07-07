@@ -155,7 +155,7 @@ function RecordingCountdown({ seconds, onTimeUp }) {
   if (!seconds) return null
   const progress = ((MAX_RECORDING_SECONDS - seconds) / MAX_RECORDING_SECONDS) * 100
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (seconds === 0) {
       onTimeUp()
     }
