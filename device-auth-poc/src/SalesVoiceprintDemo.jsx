@@ -287,7 +287,7 @@ export default function SalesVoiceprintDemo() {
   const [audioLevel, setAudioLevel] = useState(0)
   const [countdownSeconds, setCountdownSeconds] = useState(null)
   const [sampleStatus, setSampleStatus] = useState(voiceprintStatus.processing)
-  const [showCountdown, setShowCountdown] = useState(true)
+  const [showCountdown, setShowCountdown] = useState(false)
   const [demoCountdown, setDemoCountdown] = useState(null)
   const audioContextRef = useRef(null)
   const analyserRef = useRef(null)
