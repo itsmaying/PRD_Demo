@@ -155,7 +155,9 @@ function RecordingCountdown({ seconds }) {
   if (!seconds) return null
   return (
     <div className="svp-countdown">
-      {seconds}s
+      <span className="svp-countdown-label">录制倒计时</span>
+      <span className="svp-countdown-time">{seconds}s</span>
+      <span className="svp-countdown-hint">时间到自动提交</span>
     </div>
   )
 }
@@ -226,7 +228,7 @@ function SuccessPage({ onAcknowledge }) {
 
 function RecordedPage({ onRerecord, status }) {
   const statusText = status === voiceprintStatus.processing
-    ? '正在验证'
+    ? '智能提取中'
     : status === voiceprintStatus.valid
       ? '✓ 可用'
       : '⚠ 建议重新录制'
@@ -251,7 +253,7 @@ function RecordedPage({ onRerecord, status }) {
           <span className="svp-status-icon">{statusIcon}</span>
           {status === voiceprintStatus.processing ? (
             <>
-              <span className="svp-status-text">正在验证</span>
+              <span className="svp-status-text">智能提取中</span>
               <span className="svp-status-dots"></span>
             </>
           ) : (
