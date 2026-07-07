@@ -231,6 +231,12 @@ function RecordedPage({ onRerecord, status }) {
       ? '✓ 可用'
       : '⚠ 建议重新录制'
 
+  const statusIcon = status === voiceprintStatus.processing
+    ? '⏳'
+    : status === voiceprintStatus.valid
+      ? '✓'
+      : '⚠'
+
   const statusClass = status === voiceprintStatus.valid
     ? 'svp-status-valid'
     : status === voiceprintStatus.invalid
@@ -242,7 +248,11 @@ function RecordedPage({ onRerecord, status }) {
       <div className="svp-recorded-header">
         <p>已录入你的声音样本</p>
         <div className={`svp-status-inline ${statusClass}`}>
-          {statusText}
+          <span className="svp-status-icon">{statusIcon}</span>
+          <span className="svp-status-text">
+            {status === voiceprintStatus.processing ? '正在验证' : statusText.replace('✓', '').replace('⚠', '').trim()}
+          </span>
+          {status === voiceprintStatus.processing && <span className="svp-status-dots"></span>}
         </div>
       </div>
       {status === voiceprintStatus.invalid && (
@@ -268,11 +278,13 @@ export default function SalesVoiceprintDemo() {
   const [countdownSeconds, setCountdownSeconds] = useState(null)
   const [sampleStatus, setSampleStatus] = useState(voiceprintStatus.processing)
   const [showCountdown, setShowCountdown] = useState(true)
+  const [demoCountdown, setDemoCountdown] = useState(null)
   const audioContextRef = useRef(null)
   const analyserRef = useRef(null)
   const micStreamRef = useRef(null)
   const countdownIntervalRef = useRef(null)
   const toastTimerRef = useRef(null)
+  const demoCountdownIntervalRef = useRef(null)
 
   useEffect(() => () => {
     if (toastTimerRef.current) {
@@ -280,6 +292,9 @@ export default function SalesVoiceprintDemo() {
     }
     if (countdownIntervalRef.current) {
       window.clearInterval(countdownIntervalRef.current)
+    }
+    if (demoCountdownIntervalRef.current) {
+      window.clearInterval(demoCountdownIntervalRef.current)
     }
   }, [])
 
@@ -430,6 +445,10 @@ export default function SalesVoiceprintDemo() {
     setDeleteOpen(false)
     setToast('')
     setIsSubmitting(false)
+    if (demoCountdownIntervalRef.current) {
+      window.clearInterval(demoCountdownIntervalRef.current)
+      setDemoCountdown(null)
+    }
 
     if (stateId === 'failed_duration') {
       setPage(pageKeys.recording)
@@ -452,6 +471,24 @@ export default function SalesVoiceprintDemo() {
       setRecordingState(stateId === 'active' ? recordingStatus.active : recordingStatus.ready)
       setAttemptCount(stateId === 'active' ? 0 : 0)
       setAudioLevel(stateId === 'active' ? 0.3 : 0)
+
+      // Start demo countdown if active and showing countdown
+      if (stateId === 'active' && showCountdown) {
+        let remaining = COUNTDOWN_START_SECONDS
+        setDemoCountdown(remaining)
+        if (demoCountdownIntervalRef.current) {
+          window.clearInterval(demoCountdownIntervalRef.current)
+        }
+        demoCountdownIntervalRef.current = window.setInterval(() => {
+          remaining -= 1
+          if (remaining <= 0) {
+            setDemoCountdown(null)
+            window.clearInterval(demoCountdownIntervalRef.current)
+          } else {
+            setDemoCountdown(remaining)
+          }
+        }, 1000)
+      }
       return
     }
 
@@ -495,7 +532,7 @@ export default function SalesVoiceprintDemo() {
             onComplete={handleCompleteRecording}
             onRetry={handleRetryRecording}
             isSubmitting={isSubmitting}
-            countdownSeconds={countdownSeconds}
+            countdownSeconds={demoCountdown !== null ? demoCountdown : countdownSeconds}
             showCountdown={showCountdown}
           />
         ) : null}

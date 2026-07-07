@@ -301,11 +301,42 @@
 }
 
 .svp-status-inline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   padding: 6px 12px;
   border-radius: 8px;
   font-size: 13px;
   font-weight: 600;
   white-space: nowrap;
+}
+
+.svp-status-icon {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.svp-status-text {
+  display: inline-block;
+}
+
+.svp-status-dots {
+  display: inline-block;
+  width: 16px;
+  height: 4px;
+  position: relative;
+}
+
+.svp-status-processing .svp-status-dots::after {
+  content: '...';
+  animation: svp-dots 1.4s steps(4, end) infinite;
+  letter-spacing: -2px;
+}
+
+@keyframes svp-dots {
+  0%, 20% { content: '.'; }
+  40% { content: '..'; }
+  60%, 100% { content: '...'; }
 }
 
 .svp-status-inline.svp-status-valid {
