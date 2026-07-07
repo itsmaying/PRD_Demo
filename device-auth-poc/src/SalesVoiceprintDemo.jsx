@@ -249,10 +249,14 @@ function RecordedPage({ onRerecord, status }) {
         <p>已录入你的声音样本</p>
         <div className={`svp-status-inline ${statusClass}`}>
           <span className="svp-status-icon">{statusIcon}</span>
-          <span className="svp-status-text">
-            {status === voiceprintStatus.processing ? '正在验证' : statusText.replace('✓', '').replace('⚠', '').trim()}
-          </span>
-          {status === voiceprintStatus.processing && <span className="svp-status-dots"></span>}
+          {status === voiceprintStatus.processing ? (
+            <>
+              <span className="svp-status-text">正在验证</span>
+              <span className="svp-status-dots"></span>
+            </>
+          ) : (
+            <span className="svp-status-text">{statusText.replace('✓', '').replace('⚠', '').trim()}</span>
+          )}
         </div>
       </div>
       {status === voiceprintStatus.invalid && (
