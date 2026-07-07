@@ -151,9 +151,16 @@ function RecordingWave({ active }) {
   )
 }
 
-function RecordingCountdown({ seconds }) {
+function RecordingCountdown({ seconds, onTimeUp }) {
   if (!seconds) return null
   const progress = ((MAX_RECORDING_SECONDS - seconds) / MAX_RECORDING_SECONDS) * 100
+
+  React.useEffect(() => {
+    if (seconds === 0) {
+      onTimeUp()
+    }
+  }, [seconds, onTimeUp])
+
   return (
     <div className="svp-countdown-bar">
       <div className="svp-countdown-progress">
@@ -192,13 +199,13 @@ function RecordingPage({ status, onStart, onComplete, onRetry, isSubmitting, cou
       <RecordingStepBar status={status} />
       <h2 className={failed ? 'svp-error-title' : ''}>{titleText}</h2>
       <p className={`svp-lead-copy${failed ? ' svp-error-text' : ''}`}>{leadText}</p>
+      {showCountdown && active && <RecordingCountdown seconds={countdownSeconds} onTimeUp={handleCompleteRecording} />}
       <div className="svp-script-card">
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
           <RecordingWave active={active && !failed} />
         </div>
         <div>{fixedScript}</div>
       </div>
-      {showCountdown && active && <RecordingCountdown seconds={countdownSeconds} />}
       <div className="svp-action-hint">{actionHint}</div>
       <div className="svp-recording-actions">
         {failed ? (
