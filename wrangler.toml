@@ -1,0 +1,8 @@
+name = "prd-demo-hub"
+
+[build]
+command = "cd device-auth-poc && npm install && npm run build"
+cwd = "./"
+
+[build.upload]
+dir = "device-auth-poc/dist"
